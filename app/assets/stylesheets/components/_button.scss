@@ -1,0 +1,87 @@
+.survey-btn {
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    display: inline-block;
+    transition: background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out;
+    text-decoration: none;
+    padding: 10px 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    &.secondary {
+      background-color: #fff;
+      border-color: $ryalto-grey;
+      color: $ryalto-darker-grey;
+    }
+    &:hover {
+      background-color: $ryalto-light-grey;
+      border-color: $ryalto-light-grey;
+      color: $ryalto-darker-grey;
+      text-decoration: none;
+    }
+    &:focus {
+      background-color: #fff;
+      border-color: $ryalto-light-grey;
+      text-decoration: none;
+    }
+    &.primary {
+      background-color: $ryalto-blue;
+      border-color: $ryalto-blue;
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        background-color: $ryalto-darker-blue;
+        border-color: $ryalto-darker-blue;
+        text-decoration: none;
+      }
+      &:focus {
+        background-color: $ryalto-blue;
+        border-color: $ryalto-button-border-blue;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  #create-survey-btn {
+    width: 100%;
+  }
+  
+  #new-survey-btn {
+    width: 100%;
+  }
+  
+  #trash-icon-new {
+    position: absolute;
+    right: 36px;
+    padding: 15px;
+  }
+  
+  // .survey-buttons {
+  //   background-color: $ryalto-blue;
+  //   border-color: $ryalto-blue;
+  //   color: #fff;
+  //   &:hover {
+  //     background-color: $ryalto-darker-blue;
+  //     border-color: $ryalto-darker-blue;
+  //     text-decoration: none;
+  //   }
+  //   &:focus {
+  //     background-color: $ryalto-blue;
+  //     border-color: $ryalto-button-border-blue;
+  //     text-decoration: none;
+  //   }
+  // }
+  
+  // #new-survey-btn {
+  //     position: fixed;
+  //     bottom: 15vh;
+  //     left: 29vw;
+  //     text-decoration: none;
+  
+  //     a &:hover {
+  //       text-decoration: none;
+  //     }
+  // }
+  

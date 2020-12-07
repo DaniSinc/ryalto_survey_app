@@ -1,0 +1,41 @@
+<tr id= "survey_<%= survey.id %>">
+
+  <%# <td> %>
+    <%# if can_administer? %>
+      <%#= link_to survey.name, survey_questions_path(survey) %>
+    <%# else %>
+      <%#= survey.name %>
+    <%# end %>
+  <%# </td> %>
+
+  <td>
+    <% if can_administer? %>
+      <%= link_to survey.name, edit_survey_path(survey) %>
+    <% else %>
+      <%= survey.name %>
+    <% end %>
+  </td>
+
+
+  <td>
+    <%= survey.created_at.strftime("%m/%d/%Y")%>
+  </td>
+
+  <td>
+
+      <% if can_administer? %>
+        <%# <li>
+          <%= link_to "Results", [:results, survey] %>
+        <%# </li> %>
+        <%= link_to "Add questions", survey_questions_path(survey) %>
+      <% end %>
+      <%= link_to "Answer Questions", new_survey_attempt_path(survey) %>
+
+  </td>
+  
+  <td>
+    <%= link_to survey, method: :delete do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

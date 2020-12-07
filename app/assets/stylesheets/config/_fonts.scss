@@ -1,16 +1,16 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Poppins", "Arial", "sans-serif";
+$headers-font: "Poppins", "Arial", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+$ryalto-nf-font-family: 'Poppins', Arial, sans-serif;
+
+$default-font-size: 1rem;
+$p-size: $default-font-size;
+$h1-size: $default-font-size*2.625;
+$h2-size: $default-font-size*1.5;
+$h3-size: $default-font-size*1.25;
+$h4-size: $default-font-size;
+$h5-size: $default-font-size*0.75;
+$h6-size: $default-font-size*0.625;

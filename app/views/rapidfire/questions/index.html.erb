@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="new-page-heading-container">
+    <h2>
+      <%= t('rapidfire.questions.header') -%>
+    </h2>
+  </div>
+
+  <button class="survey-btn secondary" >
+    <%= link_to 'Add a question', new_survey_question_path(@survey) %>
+  </button>
+
+<%= link_to t('rapidfire.questions.back'), surveys_path(@survey) %>
+
+
+
+  <hr/>
+
+  <table>
+    <colgroup>
+      <col>
+      <col width="250">
+    </colgroup>
+    <thead>
+      <tr>
+        <th><%= t('rapidfire.questions.question') -%></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "question", collection: @questions %>
+    </tbody>
+  </table>
+
+</div>

@@ -1,10 +1,17 @@
-// Define variables for your color scheme
-
-// For example:
-$red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
+$ryalto-blue: #2B98F0;
+$ryalto-darker-blue: #1F7ECB;
+$ryalto-button-border-blue: #135488;
+$ryalto-light-blue: #AAD6F9;
+$ryalto-light-grey: #F1F1F1;
+$ryalto-grey: #D8D8D8;
+$ryalto-darker-grey: #39393A;
 $light-gray: #F4F4F4;
+$ryalto-error: #E41A33;
+$ryalto-error-bg: #feeaea;
+$default-font-size: 1rem;
+$default-font-color: #39393A;
+$p-color: #646464;
+
+h1, h2, h3, h4, h5, h6 {
+    color: $ryalto-darker-blue;
+}

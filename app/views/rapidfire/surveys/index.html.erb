@@ -1,0 +1,30 @@
+<div class="container index-page-container">
+
+  <h5>Your surveys</h5>
+  <%= image_tag 'survey-icon', id:"survey-icon"%>
+
+  <table>
+    <thead>
+      <tr class="border-bottom">
+        <th>Name</th>
+        <th>Date created</th>
+        <th>Actions</th>
+        <th>Remove</th>
+        <%# <th colspan="3"></th> %>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "survey", collection: @surveys %>
+    </tbody>
+  </table>
+
+<% if defined?(Kaminari) %>
+  <%= paginate @surveys %>
+<% end %>
+  <br>
+
+  <% if can_administer? %>
+    <%= link_to "New Survey", new_survey_path,class:"survey-btn primary", id:"new-survey-btn" %>
+  <% end %>
+
+</div>
