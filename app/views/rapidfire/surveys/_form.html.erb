@@ -27,11 +27,19 @@
 
     <%#= f.label :after_survey_content %>
     <%#= f.text_area :after_survey_content %>
-    
+
     <%- if survey.new_record? %>
-      <input type="submit" name="commit" value="Add questions" class="survey-btn primary wide-btn" data-disable-with="Submit">
+
+      <%= f.submit "Next: Add questions", class:"survey-btn primary" do %>
+        <%= link_to survey_questions_path(survey) %>
+      <% end %>
+
     <%- else %>
-      <input type="submit" name="commit" value="Submit" class="survey-btn primary wide-btn" data-disable-with="Submit">
+
+      <%= f.submit "Submit", class:"survey-btn primary" do %>
+        <%= link_to survey_questions_path(survey) %>
+      <% end %>
+      
     <% end %>
 
   <% end %>

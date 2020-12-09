@@ -45,6 +45,11 @@
         <%#= f.text_field :answer_maximum_length %>
       <%# </div> %>
 
-      <%= f.submit submit_text, class:"survey-btn primary" %>
+<%# Come back to this, you've added the do/end but unsure if question redirected back here before anyway,
+now going to try when submitting a new survey to redirect to %>
+      <%= f.submit submit_text, class:"survey-btn primary" do %>
+        <%= link_to survey_questions_path(survey) %>
+      <% end %>
+      
     <% end %>
   </div>

@@ -20,9 +20,9 @@
     </tbody>
   </table>
 
-<% if defined?(Kaminari) %>
-  <%= paginate @surveys %>
-<% end %>
+  <% if defined?(Kaminari) %>
+    <%= paginate @surveys %>
+  <% end %>
   <br>
 
   <% if can_administer? %>
