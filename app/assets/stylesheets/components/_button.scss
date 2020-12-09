@@ -7,8 +7,6 @@
     transition: background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out;
     text-decoration: none;
     padding: 10px 40px;
-    margin-top: 5px;
-    margin-bottom: 5px;
     position: relative;
     &.secondary {
       background-color: #fff;
@@ -43,12 +41,8 @@
       }
     }
   }
-  
-  #create-survey-btn {
-    width: 100%;
-  }
-  
-  #new-survey-btn {
+
+  .wide-btn {
     width: 100%;
   }
   

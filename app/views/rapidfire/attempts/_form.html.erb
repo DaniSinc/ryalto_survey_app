@@ -1,13 +1,21 @@
-<h2><%= t('rapidfire.attempts.header') -%></h2>
-<hr/>
+<div class="container survey-page-container">
+  <div class="survey-heading-container">
+    <h5>
+      <%= @survey.name %>
+      <%#= t('rapidfire.attempts.header') -%>
+    </h5>
+  </div>
 
-<p><%= @survey.introduction %></p>
+  <hr/>
 
-<%= form_for([@survey, @attempt_builder]) do |f| %>
-  <%- @attempt_builder.answers.each do |answer| %>
-    <%= f.fields_for("#{answer.question.id}", answer) do |answer_form| %>
-      <%= render_answer_form_helper(answer, answer_form) %>
+  <p><%= @survey.introduction %></p>
+
+  <%= form_for([@survey, @attempt_builder]) do |f| %>
+    <%- @attempt_builder.answers.each do |answer| %>
+      <%= f.fields_for("#{answer.question.id}", answer) do |answer_form| %>
+        <%= render_answer_form_helper(answer, answer_form) %>
+      <% end %>
     <% end %>
+    <%= f.submit submit_text %>
   <% end %>
-  <%= f.submit submit_text %>
-<% end %>
+</div>

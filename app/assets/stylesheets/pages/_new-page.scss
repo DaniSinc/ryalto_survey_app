@@ -1,6 +1,6 @@
 label {
     color: $ryalto-darker-blue;
-    font-weight: bold;
+    font-size: 14px;
 }
 
 input {
@@ -9,6 +9,8 @@ input {
     color: $ryalto-blue;
     border-radius: 6px;
     border: 1px solid $ryalto-darker-blue;
+    font-size: 12px;
+    padding: 5px;
 }
 
 textarea {
@@ -17,14 +19,21 @@ textarea {
     color: $ryalto-blue;
     border-radius: 6px;
     border: 1px solid $ryalto-darker-blue;
+    font-size: 12px;
 }
 
+.form-control {
+    font-size: 12px;
+}
+  
 select {
     padding: 9px 13px;
     width: 100%;
     color: $ryalto-blue;
     border-radius: 6px;
     border: 1px solid $ryalto-darker-blue;
+    font-size: 12px;
+    padding: 5px;
 }
 
 i {
@@ -32,11 +41,16 @@ i {
     padding: 10px;
 }
 
-.new-page-container {
+p, a {
+    font-size: 12px;
+}
+
+.survey-page-container {
     padding: 5px 20px 0 20px;
-    .new-page-heading-container {
+    .survey-heading-container {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 12px;
+        margin-bottom: 12px;
     }
     .form-container {
         align-self: left;
@@ -53,10 +67,4 @@ i {
 
 #close-icon {
     color: black;
-    position: fixed;
-    right: 26px;
-}
-
-#question_answer_presence {
-    width: 50%;
 }

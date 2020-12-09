@@ -1,29 +1,37 @@
-<div class="container">
+<div class="container survey-page-container">
 
-  <div class="new-page-heading-container">
-    <h2>
-      <%= t('rapidfire.questions.header') -%>
-    </h2>
+  <div class="survey-heading-container">
+    <h5><%= @survey.name %></h5>
+    <%= image_tag 'survey-icon', id:"survey-icon"%>
   </div>
 
-  <button class="survey-btn secondary" >
-    <%= link_to 'Add a question', new_survey_question_path(@survey) %>
-  </button>
+  <table class="mini-table">
+  <colgroup>
+    <col width="50%">
+    <col>
+    <col>
+  </colgroup>
+    <tr>
+      <td><strong>Survey name:</strong></td>
+      <td><%= link_to @survey.name, edit_survey_path(@survey) %></td></tr>
+    <tr>
+      <td><strong>Description:</strong></td>
+      <td><%= link_to @survey.introduction, edit_survey_path(@survey) %></td>
+    </tr>
+  </table>
 
-<%= link_to t('rapidfire.questions.back'), surveys_path(@survey) %>
-
-
-
-  <hr/>
-
-  <table>
+  <table class="custom-table">
     <colgroup>
+      <col width="6%">
+      <col width="45%">
+      <col width="25%">
       <col>
-      <col width="250">
     </colgroup>
     <thead>
       <tr>
+        <th></th>
         <th><%= t('rapidfire.questions.question') -%></th>
+        <th>Answer type</th>
         <th></th>
       </tr>
     </thead>
@@ -31,5 +39,14 @@
       <%= render partial: "question", collection: @questions %>
     </tbody>
   </table>
+
+  <button class="survey-btn secondary wide-btn">
+    <%= link_to 'Add a question', new_survey_question_path(@survey) %>
+  </button>
+
+  <hr/>
+
+  <%#= link_to t('rapidfire.questions.back'), surveys_path(@survey) %>
+  <%= link_to "Back to surveys", surveys_path(@survey) %>
 
 </div>

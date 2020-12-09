@@ -1,9 +1,27 @@
 <tr id="question_<%= question.id %>">
+  <td class="border-right"><%= question.id %></td>
   <td><%= question.question_text %></td>
+ 
   <td>
-    <ul class="horizontal-list">
-      <li><%= link_to "Edit", [:edit, question.survey, question] %></li>
-      <li><%= link_to "Delete", [question.survey, question], method: :delete %></li>
-    </ul>
+    <% if question.type.split("::").last == "Long" %>
+      <%="Textbox" %>
+    <% elsif question.type.split("::").last == "Numeric" %>
+      <%= "Number value" %>
+    <% else question.type.split("::").last == "Radio" %>
+      <%= "Radio" %>
+    <% end %>
+  </td> 
+
+  <td>
+    <%= link_to [:edit, question.survey, question] do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+
+    <%= link_to [question.survey, question], method: :delete do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
   </td>
 </tr>
+
+
+

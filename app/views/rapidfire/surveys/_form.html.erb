@@ -1,4 +1,4 @@
-<div class="new-page-heading-container">
+<div class="survey-heading-container">
   <h3><%= survey.new_record? ? "New Survey" : "Edit Survey" %></h3>
   <%= image_tag 'survey-icon', id:"survey-icon"%>
 </div>
@@ -28,7 +28,11 @@
     <%#= f.label :after_survey_content %>
     <%#= f.text_area :after_survey_content %>
     
-    <%= f.submit 'Submit', class:"survey-btn primary", id:"create-survey-btn" %>
-  <% end %>
+    <%- if survey.new_record? %>
+      <input type="submit" name="commit" value="Add questions" class="survey-btn primary wide-btn" data-disable-with="Submit">
+    <%- else %>
+      <input type="submit" name="commit" value="Submit" class="survey-btn primary wide-btn" data-disable-with="Submit">
+    <% end %>
 
+  <% end %>
 </div>

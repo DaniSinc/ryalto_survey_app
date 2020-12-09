@@ -1,43 +1,50 @@
-<div class="new-page-heading-container">
-  <h3>Question</h3>
-  <%= image_tag 'survey-icon', id:"survey-icon"%>
-</div>
+<div class="survey-page-container">
+  <div class="survey-heading-container">
+    <h3>Questions</h3>
+    <%= image_tag 'survey-icon', id:"survey-icon"%>
+  </div>
 
-<div class="form-container">
-  <%= form_for form, as: :question, url: url, method: method do |f| %>
-    <%- unless form.errors.empty? %>
-      <ul>
-        <%- form.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="form-container">
+    <%= form_for form, as: :question, url: url, method: method do |f| %>
+      <%- unless form.errors.empty? %>
+        <ul>
+          <%- form.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label "Enter your question" %>
+        <%= f.text_field :question_text %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Select your answer type" %>
+        <%#= f.select :type, ::Rapidfire::QuestionForm::QUESTION_TYPES, {}, id: "question_type" %>
+        <select id="question_type" name="question[type]">
+          <option value=""></option>
+          <option value="Rapidfire::Questions::Long">Textbox</option>
+          <option value="Rapidfire::Questions::Numeric">Numer value</option>
+          <option value="Rapidfire::Questions::Radio">Radio buttons</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :answer_options %>
+        <%= f.text_area :answer_options, rows: 5 %>
+      </div>
+
+      <div class="form-group require-answer-group">
+        <%= f.label "Require answer" %>
+        <%= f.check_box :answer_presence %>
+      </div>
+
+      <%# <div class="form-group"> %>
+        <%#= f.label :answer_maximum_length %>
+        <%#= f.text_field :answer_maximum_length %>
+      <%# </div> %>
+
+      <%= f.submit submit_text, class:"survey-btn primary" %>
     <% end %>
-
-    <div class="form-group">
-      <%= f.label "Enter your question" %>
-      <%= f.text_field :question_text %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Select your answer type" %>
-      <%= f.select :type, ::Rapidfire::QuestionForm::QUESTION_TYPES, {}, id: "question_type" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :answer_options %>
-      <%= f.text_area :answer_options, rows: 5 %>
-    </div>
-
-    <div class="form-group require-answer-group">
-      <%= f.label "Require answer" %>
-      <%= f.check_box :answer_presence %>
-    </div>
-
-    <%# <div class="form-group"> %>
-      <%#= f.label :answer_maximum_length %>
-      <%#= f.text_field :answer_maximum_length %>
-    <%# </div> %>
-
-    <%= f.submit submit_text, class:"survey-btn primary" %>
-  <% end %>
-</div>
+  </div>
