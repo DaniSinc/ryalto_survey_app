@@ -16,7 +16,7 @@
       <td><%= link_to @survey.name, edit_survey_path(@survey) %></td></tr>
     <tr>
       <td><strong>Description:</strong></td>
-      <td><%= link_to @survey.introduction, edit_survey_path(@survey) %></td>
+      <td><%= @survey.introduction %></td>
     </tr>
   </table>
 

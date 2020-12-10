@@ -1,0 +1,47 @@
+<%= render partial: "rapidfire/answers/errors", locals: {answer: answer} %>
+
+<div class="form-group">
+<h2>DELETE THIS PLEASE</h2>
+  <%= f.label :answer_text, answer.question.question_text %>
+  <%# <label for="attempt_4_answer_text">I felt happy with my work load today</label> %>
+
+
+  <%- answer.question.options.each_with_index do |option, index| %>
+    <span class="form-group sub">
+      <%# <span class="form-group sub"> %>
+      <%= f.label "answer_text_#{index}"%>
+      <br>
+      <%# <label for="attempt_4_answer_text_0"> %>
+
+        <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
+        <%# <input id="attempt_4_answer_text_0" type="radio" value="Strongly disagree" name="attempt[4][answer_text]"> %>
+        
+        <% if input.value = 'Smiley 1:' %>
+            <%=  image_tag 'strongly-agree.png' %>
+        <% elsif input.value = 'Smiley 2:' %>
+            <%= image_tag 'agree.png' %>
+        <% elsif input.value = 'Smiley 3:' %>
+            <%= image_tag 'neutral2.png' %>
+        <% elsif input.value = 'Smiley 4:' %>
+            <%= image_tag 'disagree.png' %>
+        <% elsif input.value = 'Smiley 5:' %>
+            <%= image_tag 'strongly-disagree.png' %>      
+        <% end %>
+        
+        <%# Strongly disagree %>
+
+      <%# </label> %>
+    </span>
+    <%# </span> %>
+  <% end %>
+
+
+</div>
+
+
+
+
+
+<%#= f.collection_radio_buttons(:paket, [[1, 'One'] ,[2, 'Two'], [3, 'Three']], :first, :last) do |b| %>
+    <%#= b.label { b.radio_button + b.text } %>
+<%# end %>

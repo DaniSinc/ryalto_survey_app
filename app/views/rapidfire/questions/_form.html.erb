@@ -25,14 +25,37 @@
         <select id="question_type" name="question[type]">
           <option value=""></option>
           <option value="Rapidfire::Questions::Long">Textbox</option>
-          <option value="Rapidfire::Questions::Numeric">Numer value</option>
-          <option value="Rapidfire::Questions::Radio">Radio buttons</option>
+          <option value="Rapidfire::Questions::Radio">Smiley rating</option>
+          <option value="Rapidfire::Questions::Checkbox">Custom checkboxes</option>
         </select>
       </div>
 
-      <div class="form-group">
-        <%= f.label :answer_options %>
-        <%= f.text_area :answer_options, rows: 5 %>
+      <div class="form-group" id="smiley-question-type-group" style="display:none;">
+        <%= f.label :answer_options, class: "d-block" %>
+        <%= f.text_area :answer_options, 
+          rows: 5,      
+          value: 
+            "Smiley 1:
+Smiley 2:
+Smiley 3:
+Smiley 4:
+Smiley 5:" %>
+
+        <%= f.label "Include additional textbox" %>
+      </div>
+
+      <div class="form-group" id="custom-question-type-group" style="display:none;">
+        <%= f.label :answer_options, class: "d-block" %>
+        <%= f.text_area :answer_options, 
+          rows: 5,
+          placeholder: 
+            "Option 1:
+Option 2:
+Option 3:
+Option 4:
+Option 5:" %>
+
+        <%= f.label "Include additional textbox" %>
       </div>
 
       <div class="form-group require-answer-group">
@@ -53,3 +76,17 @@ now going to try when submitting a new survey to redirect to %>
       
     <% end %>
   </div>
+
+<script>
+
+  document.getElementById('question_type').addEventListener('change', function () {
+    const style = this.value == "Rapidfire::Questions::Radio" ? 'block' : 'none';
+    document.getElementById('smiley-question-type-group').style.display = style
+  })
+
+   document.getElementById('question_type').addEventListener('change', function () {
+    const style = this.value == "Rapidfire::Questions::Checkbox" ? 'block' : 'none';
+    document.getElementById('custom-question-type-group').style.display = style
+  })
+  
+</script>

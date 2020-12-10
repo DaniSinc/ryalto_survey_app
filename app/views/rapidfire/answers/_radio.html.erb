@@ -1,13 +1,32 @@
 <%= render partial: "rapidfire/answers/errors", locals: {answer: answer} %>
 
 <div class="form-group">
+
   <%= f.label :answer_text, answer.question.question_text %>
+  <br>
   <%- answer.question.options.each_with_index do |option, index| %>
-    <span class="form-group sub">
+
+    <span class="form-group sub" id="smiley-container">
+    
       <%= f.label "answer_text_#{index}" do %>
-        <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
-        <%= option %>
+      <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
+            
+        <% if option == 'Smiley 1:' %>
+            <%=  image_tag 'strongly-agree.png', class:'smiley' %>
+        <% elsif option == 'Smiley 2:' %>
+            <%= image_tag 'agree.png', class:'smiley' %>
+        <% elsif option == 'Smiley 3:' %>
+            <%= image_tag 'neutral2.png', class:'smiley' %>
+        <% elsif option == 'Smiley 4:' %>
+            <%= image_tag 'disagree.png', class:'smiley' %>
+        <% elsif option == 'Smiley 5:' %>
+            <%= image_tag 'strongly-disagree.png', class:'smiley' %>      
+        <% end %>
+                
       <% end %>
+
     </span>
+
   <% end %>
+
 </div>
