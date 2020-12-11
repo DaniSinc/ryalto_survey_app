@@ -16,15 +16,15 @@
         <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
         <%# <input id="attempt_4_answer_text_0" type="radio" value="Strongly disagree" name="attempt[4][answer_text]"> %>
         
-        <% if input.value = 'Smiley 1:' %>
+        <% if input.value = 'Very happy' %>
             <%=  image_tag 'strongly-agree.png' %>
-        <% elsif input.value = 'Smiley 2:' %>
+        <% elsif input.value = 'Happy' %>
             <%= image_tag 'agree.png' %>
-        <% elsif input.value = 'Smiley 3:' %>
+        <% elsif input.value = 'Neutral' %>
             <%= image_tag 'neutral2.png' %>
-        <% elsif input.value = 'Smiley 4:' %>
+        <% elsif input.value = 'Unhappy' %>
             <%= image_tag 'disagree.png' %>
-        <% elsif input.value = 'Smiley 5:' %>
+        <% elsif input.value = 'Very unhappy' %>
             <%= image_tag 'strongly-disagree.png' %>      
         <% end %>
         

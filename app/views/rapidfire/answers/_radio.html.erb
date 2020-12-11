@@ -11,15 +11,15 @@
       <%= f.label "answer_text_#{index}" do %>
       <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
             
-        <% if option == 'Smiley 1:' %>
+        <% if option == 'happy1' %>
             <%=  image_tag 'strongly-agree.png', class:'smiley' %>
-        <% elsif option == 'Smiley 2:' %>
+        <% elsif option == 'happy2' %>
             <%= image_tag 'agree.png', class:'smiley' %>
-        <% elsif option == 'Smiley 3:' %>
+        <% elsif option == 'happy3' %>
             <%= image_tag 'neutral2.png', class:'smiley' %>
-        <% elsif option == 'Smiley 4:' %>
+        <% elsif option == 'happy4' %>
             <%= image_tag 'disagree.png', class:'smiley' %>
-        <% elsif option == 'Smiley 5:' %>
+        <% elsif option == 'happy5' %>
             <%= image_tag 'strongly-disagree.png', class:'smiley' %>      
         <% end %>
                 

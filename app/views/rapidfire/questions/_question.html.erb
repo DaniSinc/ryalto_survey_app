@@ -5,10 +5,10 @@
   <td>
     <% if question.type.split("::").last == "Long" %>
       <%="Textbox" %>
-    <% elsif question.type.split("::").last == "Numeric" %>
-      <%= "Number value" %>
+    <% elsif question.type.split("::").last == "Checkbox" %>
+      <%= "Custom checkboxes" %>
     <% else question.type.split("::").last == "Radio" %>
-      <%= "Radio" %>
+      <%= "Smiley rating" %>
     <% end %>
   </td> 
 
@@ -22,6 +22,3 @@
     <% end %>
   </td>
 </tr>
-
-
-

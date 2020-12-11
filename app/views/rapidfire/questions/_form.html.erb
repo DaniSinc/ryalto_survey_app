@@ -30,19 +30,19 @@
         </select>
       </div>
 
-      <div class="form-group" id="smiley-question-type-group" style="display:none;">
-        <%= f.label :answer_options, class: "d-block" %>
-        <%= f.text_area :answer_options, 
+      <%# <div class="form-group" id="smiley-question-type-group" style="display:none;"> %>
+        <%#= f.label :answer_options, class: "d-block" %>
+        <%#= f.text_area :answer_options, 
           rows: 5,      
           value: 
-            "Smiley 1:
-Smiley 2:
-Smiley 3:
-Smiley 4:
-Smiley 5:" %>
+            "Very happy
+Happy
+Neutral
+Unhappy
+Very unhappy" %>
 
-        <%= f.label "Include additional textbox" %>
-      </div>
+        <%#= f.label "Include additional textbox" %>
+      <%# </div> %>
 
       <div class="form-group" id="custom-question-type-group" style="display:none;">
         <%= f.label :answer_options, class: "d-block" %>
@@ -76,17 +76,19 @@ now going to try when submitting a new survey to redirect to %>
       
     <% end %>
   </div>
+</div>
+
 
 <script>
 
   document.getElementById('question_type').addEventListener('change', function () {
-    const style = this.value == "Rapidfire::Questions::Radio" ? 'block' : 'none';
-    document.getElementById('smiley-question-type-group').style.display = style
+  const style = this.value == "Rapidfire::Questions::Checkbox" || "Rapidfire::Questions::Radio" ? 'block' : 'none';
+  document.getElementById('custom-question-type-group').style.display = style
   })
 
-   document.getElementById('question_type').addEventListener('change', function () {
-    const style = this.value == "Rapidfire::Questions::Checkbox" ? 'block' : 'none';
-    document.getElementById('custom-question-type-group').style.display = style
-  })
-  
+  const questionType = document.getElementById('question_type');
+  const questionTypeInput = document.getElementById('question_answer_options');
+  if (questionType == "Rapidfire::Questions::Radio") {
+    questionTypeInput.innerHTML = "happy";
+  }
 </script>
