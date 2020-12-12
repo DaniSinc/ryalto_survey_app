@@ -27,22 +27,9 @@
           <option value="Rapidfire::Questions::Long">Textbox</option>
           <option value="Rapidfire::Questions::Radio">Smiley rating</option>
           <option value="Rapidfire::Questions::Checkbox">Custom checkboxes</option>
+
         </select>
       </div>
-
-      <%# <div class="form-group" id="smiley-question-type-group" style="display:none;"> %>
-        <%#= f.label :answer_options, class: "d-block" %>
-        <%#= f.text_area :answer_options, 
-          rows: 5,      
-          value: 
-            "Very happy
-Happy
-Neutral
-Unhappy
-Very unhappy" %>
-
-        <%#= f.label "Include additional textbox" %>
-      <%# </div> %>
 
       <div class="form-group" id="custom-question-type-group" style="display:none;">
         <%= f.label :answer_options, class: "d-block" %>
@@ -54,6 +41,7 @@ Option 2:
 Option 3:
 Option 4:
 Option 5:" %>
+
 
         <%= f.label "Include additional textbox" %>
       </div>
@@ -68,8 +56,8 @@ Option 5:" %>
         <%#= f.text_field :answer_maximum_length %>
       <%# </div> %>
 
-<%# Come back to this, you've added the do/end but unsure if question redirected back here before anyway,
-now going to try when submitting a new survey to redirect to %>
+      <%# Come back to this, you've added the do/end but unsure if question redirected back here before anyway,
+      now going to try when submitting a new survey to redirect to %>
       <%= f.submit submit_text, class:"survey-btn primary" do %>
         <%= link_to survey_questions_path(survey) %>
       <% end %>
@@ -82,13 +70,17 @@ now going to try when submitting a new survey to redirect to %>
 <script>
 
   document.getElementById('question_type').addEventListener('change', function () {
-  const style = this.value == "Rapidfire::Questions::Checkbox" || "Rapidfire::Questions::Radio" ? 'block' : 'none';
-  document.getElementById('custom-question-type-group').style.display = style
+  const style = (this.value == "Rapidfire::Questions::Checkbox") ? 'block' : 'none';
+  document.getElementById('custom-question-type-group').style.display = style;
+  
+  const s = document.getElementById('question_answer_options');
+  if (this.value == "Rapidfire::Questions::Radio") {
+    s.textContent = "happy1" + "\n" + "happy2" + "\n"+ "happy3" + "\n" + "happy4" + "\n" + "happy5";
+  };
+
   })
 
-  const questionType = document.getElementById('question_type');
-  const questionTypeInput = document.getElementById('question_answer_options');
-  if (questionType == "Rapidfire::Questions::Radio") {
-    questionTypeInput.innerHTML = "happy";
-  }
 </script>
+
+
+
