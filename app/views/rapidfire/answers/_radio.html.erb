@@ -2,7 +2,7 @@
 
 <div class="form-group">
 
-  <%= f.label :answer_text, answer.question.question_text %>
+  <%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels' %>
   <br>
   <%- answer.question.options.each_with_index do |option, index| %>
 
