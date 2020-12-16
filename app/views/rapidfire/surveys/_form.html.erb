@@ -1,9 +1,6 @@
-<div class="survey-heading-container">
-  <h3><%= survey.new_record? ? "New Survey" : "Edit Survey" %></h3>
+  <h4><%= survey.new_record? ? "New Survey" : "Edit Survey" %></h4>
   <%= image_tag 'survey-icon', id:"survey-icon"%>
-</div>
 
-<div class="form-container">
   <%= form_for survey do |f| %>
     <%- if survey.errors.any? %>
       <ul>
@@ -13,34 +10,36 @@
       </ul>
     <% end %>
 
-    <div class="form-group">
-      <%= f.label :name, "Step 1: Name your survey" %>
-      <br>
-      <%= f.text_field :name, placeholder: "Survey name", class: "form-control", label: false %>
-    </div>
+    <div class="new-survey-form">
 
-    <div class="form-group">
-      <%= f.label :introduction, "Step 2: Provide a description" %>
-      <br>
-      <%= f.text_area :introduction, placeholder: "Description", class: "form-control", label:false %>
-    </div>
+      <div class="form-group">
+        <%= f.label :name, "Step 1: Name your survey" %>
+        <br>
+        <%= f.text_field :name, placeholder: "Survey name", class: "form-control", label: false %>
+      </div>
 
-    <%#= f.label :after_survey_content %>
-    <%#= f.text_area :after_survey_content %>
+      <div class="form-group">
+        <%= f.label :introduction, "Step 2: Provide a description" %>
+        <br>
+        <%= f.text_area :introduction, placeholder: "Description", class: "form-control", label:false %>
+      </div>
 
-    <%- if survey.new_record? %>
+      <%#= f.label :after_survey_content %>
+      <%#= f.text_area :after_survey_content %>
 
-      <%= f.submit "Next: Add questions", class:"survey-btn primary" do %>
-        <%= link_to survey_questions_path(survey) %>
+      <%- if survey.new_record? %>
+
+        <%= f.submit "Next: Add questions", class:"survey-btn primary" do %>
+          <%= link_to survey_questions_path(survey) %>
+        <% end %>
+
+      <%- else %>
+
+        <%= f.submit "Submit", class:"survey-btn primary wide-btn" do %>
+          <%= link_to survey_questions_path(survey) %>
+        <% end %>
+        
       <% end %>
-
-    <%- else %>
-
-      <%= f.submit "Submit", class:"survey-btn primary" do %>
-        <%= link_to survey_questions_path(survey) %>
-      <% end %>
-      
-    <% end %>
+    </div>
 
   <% end %>
-</div>

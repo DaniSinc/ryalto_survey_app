@@ -1,0 +1,38 @@
+.content-wrapper {
+    display: flex;
+    .content {
+        width: auto;
+        position: absolute;
+        left: 230px;
+        img {
+            width: auto;
+            max-width: 100%;
+        }
+        .content-body {
+            background-color: #ECF0F5;
+            padding: 15px;
+            min-height: 100vh;
+            p, a {
+                font-size: 14px;
+            }
+            h5 {
+                display: inline;
+            }
+        }
+    }
+    #left-panel {
+        position: absolute;
+        left: 0;
+        width: 230px;
+        height: 100vh;
+        background-image: image-url('left-panel.png');
+    }
+
+}
+
+#survey-icon {
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}

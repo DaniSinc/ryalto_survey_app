@@ -16,11 +16,11 @@
 
     <% if can_administer? %>
       <%= link_to "Add questions", survey_questions_path(survey) %>
-      <%# <br> %>
-      <%#= link_to "View results", [:results, survey] %>
+      <br>
+      <%= link_to "View results", [:results, survey] %>
     <% end %>
     <br>
-    <%= link_to "Answer Questions", new_survey_attempt_path(survey), id: 'answer-questions' %>
+    <%= link_to "Answer questions", new_survey_attempt_path(survey) %>
 
   </td>
   

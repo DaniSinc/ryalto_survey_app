@@ -1,53 +1,52 @@
-<div class="container survey-page-container">
+<div class="container content-wrapper">
 
-  <div class="survey-heading-container">
-    <h5><%= @survey.name %></h5>
-    <%= image_tag 'survey-icon', id:"survey-icon"%>
+  <div id='left-panel'>
   </div>
 
-  <table class="mini-table">
-  <colgroup>
-    <col width="50%">
-    <col>
-    <col>
-  </colgroup>
-    <tr>
-      <td><strong>Survey name:</strong></td>
-      <td><%= link_to @survey.name, edit_survey_path(@survey) %></td></tr>
-    <tr>
-      <td><strong>Description:</strong></td>
-      <td><%= @survey.introduction %></td>
-    </tr>
-  </table>
+  <div class="content">
 
-  <table class="custom-table">
-    <colgroup>
-      <col width="6%">
-      <col width="45%">
-      <col width="25%">
-      <col>
-    </colgroup>
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= t('rapidfire.questions.question') -%></th>
-        <th>Answer type</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "question", collection: @questions %>
-    </tbody>
-  </table>
+    <%= image_tag 'top-panel.png' %>
+    
+    <div class="content-body">
+      <h5><%= @survey.name %></h5>
+      <%= link_to edit_survey_path(@survey) do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
 
-  <button class="survey-btn secondary wide-btn">
-    <%= link_to 'Add a question', new_survey_question_path(@survey) %>
-  </button>
+      <br>
+      
+        <p><strong>Description:  </strong><%= @survey.introduction %></p>
 
-  <hr/>
+      <div class="content-question-index">
 
-  <%#= link_to t('rapidfire.questions.back'), surveys_path(@survey) %>
-  <%= link_to "Back to surveys", surveys_path(@survey) %>
+        <table class="custom-table">
+          <colgroup>
+            <col width="6%">
+            <col width="45%">
+            <col width="25%">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th></th>
+              <th><%= t('rapidfire.questions.question') -%></th>
+              <th>Answer type</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "question", collection: @questions %>
+          </tbody>
+        </table>
 
+        <%= link_to 'Add a question', new_survey_question_path(@survey), class:'survey-btn primary wide-btn' %>
+
+        <hr/>
+
+        <%#= link_to t('rapidfire.questions.back'), surveys_path(@survey) %>
+        <%= link_to "Back to surveys", surveys_path(@survey) %>
+      </div>
+    </div>
+  </div>
 </div>
 

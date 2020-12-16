@@ -1,6 +1,20 @@
-<div class="container survey-page-container">
+<div class="container content-wrapper">
 
-    <%= render partial: 'form', locals: {survey: @survey} %>
-    <%= link_to "Back to surveys", surveys_path %>
+  <div id='left-panel'>
+  </div>
+
+  <div class="content">
+      
+      <%= image_tag 'top-panel.png' %>
+
+      <div class="content-body">
+
+        <%= render partial: 'form', locals: {survey: @survey} %>
+        <hr>
+        <%= link_to "Back to surveys", surveys_path %>
+
+      </div>
+
+  </div>
 
 </div>

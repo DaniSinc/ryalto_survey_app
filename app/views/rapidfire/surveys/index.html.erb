@@ -1,32 +1,42 @@
-<div class="container survey-page-container">
+<div class="container content-wrapper">
 
-<div class="survey-heading-container">
-  <h5>Your surveys</h5>
-  <%= image_tag 'survey-icon', id:"survey-icon"%>
-</div>
+  <div id='left-panel'>
+  </div>
 
-  <table class="custom-table">
-    <thead>
-      <tr class="border-bottom">
-        <th>Name</th>
-        <th>Date created</th>
-        <th>Actions</th>
-        <th></th>
-        <%# <th colspan="3"></th> %>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "survey", collection: @surveys %>
-    </tbody>
-  </table>
+  <div class="content">
+    
+    <%= image_tag 'top-panel.png' %>
+    
+    <div class="content-body">
+      <h4>Your surveys</h4>
+      <%= image_tag 'survey-icon', id:"survey-icon"%>
 
-  <% if defined?(Kaminari) %>
-    <%= paginate @surveys %>
-  <% end %>
-  <br>
+      <table class="custom-table">
+        <thead>
+          <tr class="border-bottom">
+            <th>Name</th>
+            <th>Date created</th>
+            <th>Actions</th>
+            <th></th>
+            <%# <th colspan="3"></th> %>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "survey", collection: @surveys %>
+        </tbody>
+      </table>
 
-  <% if can_administer? %>
-    <%= link_to "New Survey", new_survey_path,class:"survey-btn primary wide-btn" %>
-  <% end %>
+      <% if defined?(Kaminari) %>
+        <%= paginate @surveys %>
+      <% end %>
+      <br>
 
+      <% if can_administer? %>
+        <%= link_to "New Survey", new_survey_path, class:"survey-btn primary wide-btn" %>
+      <% end %>
+
+    </div>
+
+  </div>
+  
 </div>
