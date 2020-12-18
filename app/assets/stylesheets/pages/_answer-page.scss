@@ -1,10 +1,33 @@
-.smiley-container {
-    display: flex;
+.answer-form-group {
+    h6 {
+        color: $ryalto-darker-blue;
+    }
 }
 
+.answer-input-container {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    label {
+        text-align: center;
+    }
+
+}
+
+.checkbox-container {
+    label {
+        padding: 5px;
+    }
+}
+
+.smiley-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 .smiley {
-    height: 20px;
+    height: 25px;
 }
 
 .answer-form-labels {

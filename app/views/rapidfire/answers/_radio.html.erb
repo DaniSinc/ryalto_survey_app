@@ -1,32 +1,39 @@
 <%= render partial: "rapidfire/answers/errors", locals: {answer: answer} %>
 
-<div class="form-group">
+<div class="form-group answer-form-group">
 
-  <%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels' %>
+  <h6 class="d-inline">Q<%= answer.question_id %>:</h6>
+  <%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels d-inline' %>
   <br>
-  <%- answer.question.options.each_with_index do |option, index| %>
 
-    <span class="form-group sub" id="smiley-container">
-    
-      <%= f.label "answer_text_#{index}" do %>
-      <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
-            
-        <% if option == 'happy1' %>
-            <%=  image_tag 'strongly-agree.png', class:'smiley' %>
-        <% elsif option == 'happy2' %>
-            <%= image_tag 'agree.png', class:'smiley' %>
-        <% elsif option == 'happy3' %>
-            <%= image_tag 'neutral2.png', class:'smiley' %>
-        <% elsif option == 'happy4' %>
-            <%= image_tag 'disagree.png', class:'smiley' %>
-        <% elsif option == 'happy5' %>
-            <%= image_tag 'strongly-disagree.png', class:'smiley' %>      
+  <div class="answer-input-container smiley-container">
+
+    <%- answer.question.options.each_with_index do |option, index| %>
+
+      <div class="form-group sub">
+      
+        <%= f.label "answer_text_#{index}" do %>
+        <%= f.radio_button :answer_text, option, id: "#{f.object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")}_answer_text_#{index}" %>
+              
+          <% if option == 'happy1' %>
+              <%=  image_tag 'strongly-agree.png', class:'smiley' %>
+          <% elsif option == 'happy2' %>
+              <%= image_tag 'agree.png', class:'smiley' %>
+          <% elsif option == 'happy3' %>
+              <%= image_tag 'neutral2.png', class:'smiley' %>
+          <% elsif option == 'happy4' %>
+              <%= image_tag 'disagree.png', class:'smiley' %>
+          <% elsif option == 'happy5' %>
+              <%= image_tag 'strongly-disagree.png', class:'smiley' %>      
+          <% end %>
+                  
         <% end %>
-                
-      <% end %>
 
-    </span>
+      </div>
 
-  <% end %>
+    <% end %>
+
+  </div>
 
 </div>
+<hr>

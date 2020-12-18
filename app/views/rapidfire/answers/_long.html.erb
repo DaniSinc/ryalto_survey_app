@@ -1,6 +1,10 @@
 <%= render partial: "rapidfire/answers/errors", locals: {answer: answer} %>
-<div class="form-group">
-<%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels' %>
-<br>
-<%= f.text_area :answer_text, value: answer.answer_text || answer.question.default_text, :rows => 5, placeholder: answer.question.placeholder, id:'answer-textbox' %>
+
+<div class="form-group answer-form-group">
+
+    <h6 class="d-inline">Q<%= answer.question_id %>:</h6>
+    <%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels' %>
+    <br>
+    <%= f.text_area :answer_text, value: answer.answer_text || answer.question.default_text, :rows => 5, placeholder: answer.question.placeholder, id:'answer-textbox' %>
 </div>
+<hr>

@@ -1,26 +1,34 @@
-<div class="container survey-page-container">
-  <div class="survey-heading-container">
-    <h5>
-      <%= @survey.name %>
-      <%#= t('rapidfire.attempts.header') -%>
-    </h5>
-  </div>
+<div class="container content-wrapper">
 
-  <hr/>
+  <div class="content">
 
-  <p><em><%= @survey.introduction %></em></p>
+    <div class="content-body">
 
-  <%= form_for([@survey, @attempt_builder]) do |f| %>
+      <div class="survey-heading">
+        <h4><%= @survey.name %></h4>
+        <%= image_tag 'survey-icon', id:"survey-icon"%>
+      </div>
 
-    <%- @attempt_builder.answers.each do |answer| %>
-    
-      <%= f.fields_for("#{answer.question.id}", answer) do |answer_form| %>
-        <%= render_answer_form_helper(answer, answer_form) %>
+      <hr/>
+
+      <p><em><%= @survey.introduction %></em></p>
+
+      <%= form_for([@survey, @attempt_builder]) do |f| %>
+
+        <%- @attempt_builder.answers.each do |answer| %>
+        
+          <%= f.fields_for("#{answer.question.id}", answer) do |answer_form| %>
+            <%= render_answer_form_helper(answer, answer_form) %>
+          <% end %>
+
+        <% end %>
+
+        <%= f.submit submit_text, class:'survey-btn primary wide-btn-mobile' %>
+
       <% end %>
 
-    <% end %>
+    </div>
 
-    <%= f.submit submit_text %>
+  </div>
 
-  <% end %>
 </div>

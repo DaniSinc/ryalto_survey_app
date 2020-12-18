@@ -1,14 +1,30 @@
 <%= render partial: "rapidfire/answers/errors", locals: {answer: answer} %>
 
-<div class="form-group">
-<%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels' %>
-<br>
-<%= f.fields_for :answer_text do |af| %>
-  <%- answer.question.options.each_with_index do |option, index| %>
-    <%= af.label index do %>
-      <%= af.check_box index, { checked: checkbox_checked?(answer, option) }, option %>
-      <%= option %>
+<div class="form-group answer-form-group">
+
+  <h6 class="d-inline">Q<%= answer.question_id %>:</h6>
+  <%= f.label :answer_text, answer.question.question_text, class:'answer-form-labels d-inline' %>
+  <br>
+
+  <div class="answer-input-container checkbox-container">
+
+    <%= f.fields_for :answer_text do |af| %>
+
+      <%- answer.question.options.each_with_index do |option, index| %>
+
+        <%= af.label index do %>
+
+          <%= af.check_box index, { checked: checkbox_checked?(answer, option) }, option %>
+          
+          <%= option %>
+        
+        <% end %>
+
+      <% end %>
+
     <% end %>
-  <% end %>
-<% end %>
+
+  </div>
+
 </div>
+<hr>

@@ -1,33 +1,18 @@
 <tr id= "survey_<%= survey.id %>">
 
-  <td>
-    <% if can_administer? %>
-      <%= link_to survey.name, survey_questions_path(survey) %>
-    <% else %>
+  <td class="pl-2">
       <%= survey.name %>
-    <% end %>
   </td>
 
   <td>
-    <%= survey.created_at.strftime("%m/%d/%Y")%>
+    <%= link_to "Take survey", new_survey_attempt_path(survey) %>
   </td>
 
   <td>
-
-    <% if can_administer? %>
-      <%= link_to "Add questions", survey_questions_path(survey) %>
-      <br>
-      <%= link_to "View results", [:results, survey] %>
-    <% end %>
-    <br>
-    <%= link_to "Answer questions", new_survey_attempt_path(survey) %>
-
+    <% x = survey.duration %>
+    <% y = survey.created_at %>
+    <%= (y.next_day(x)).strftime("%d %b %Y") %>
   </td>
-  
-  <td>
-    <%= link_to survey, method: :delete do %>
-      <i class="fas fa-trash"></i>
-    <% end %>
-  </td>
+
 </tr>
 
