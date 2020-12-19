@@ -9,9 +9,9 @@
   </td>
 
   <td>
-    <% x = survey.duration %>
-    <% y = survey.created_at %>
-    <%= (y.next_day(x)).strftime("%d %b %Y") %>
+    <%= survey.duration.strftime("%d %b %Y") %>
+    <%# y = survey.created_at %>
+    <%#= y.strftime("%d %b %Y") %>
   </td>
 
 </tr>
